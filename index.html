@@ -9,103 +9,170 @@
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body class="bg-gray-100 font-roboto">
-    <div class="container mx-auto px-4 py-8 max-w-md">
-        <div class="bg-white shadow-lg rounded-xl overflow-hidden relative">
-            <!-- Profile Header -->
-            <div class="relative">
-                <img src="/api/placeholder/800/300" alt="Cover Photo" class="w-full h-48 object-cover">
-                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
-                    <h1 class="text-2xl font-bold">Nguyễn Văn A</h1>
-                    <p class="text-sm">Nhà phát triển & Sáng tạo nội dung</p>
-                </div>
-                <img src="/api/placeholder/200/200" alt="Profile Picture" class="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 border-4 border-white rounded-full w-32 h-32 object-cover">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://www.citypng.com/public/uploads/preview/threads-app-black-logo-icon-png-735811696672465sppjeyghwv.png" alt="Logo" class="h-8 w-8">
+                <h1 class="text-xl font-bold text-gray-800">Hồ Sơ Cá Nhân</h1>
             </div>
-
-            <!-- Profile Info -->
-            <div class="pt-20 p-6 text-center">
-                <p class="text-gray-600 mb-4">Đam mê công nghệ, sáng tạo và kết nối con người thông qua công nghệ và truyền thông số.</p>
-                
-                <!-- Social Links -->
-                <div class="grid grid-cols-3 gap-4 mt-6">
-                    <a href="https://www.tiktok.com/@username" target="_blank" class="bg-blue-50 p-3 rounded-lg hover:bg-blue-100 transition">
-                        <i data-feather="video" class="mx-auto text-blue-500 w-8 h-8"></i>
-                        <span class="block text-xs mt-2 text-blue-600">TikTok</span>
-                    </a>
-                    <a href="https://www.facebook.com/username" target="_blank" class="bg-blue-50 p-3 rounded-lg hover:bg-blue-100 transition">
-                        <i data-feather="facebook" class="mx-auto text-blue-500 w-8 h-8"></i>
-                        <span class="block text-xs mt-2 text-blue-600">Facebook</span>
-                    </a>
-                    <a href="https://www.threads.net/@username" target="_blank" class="bg-blue-50 p-3 rounded-lg hover:bg-blue-100 transition">
-                        <i data-feather="instagram" class="mx-auto text-blue-500 w-8 h-8"></i>
-                        <span class="block text-xs mt-2 text-blue-600">Threads</span>
-                    </a>
-                    <a href="https://t.me/username" target="_blank" class="bg-blue-50 p-3 rounded-lg hover:bg-blue-100 transition">
-                        <i data-feather="send" class="mx-auto text-blue-500 w-8 h-8"></i>
-                        <span class="block text-xs mt-2 text-blue-600">Telegram</span>
-                    </a>
-                    <a href="https://zalo.me/username" target="_blank" class="bg-blue-50 p-3 rounded-lg hover:bg-blue-100 transition">
-                        <i data-feather="smartphone" class="mx-auto text-blue-500 w-8 h-8"></i>
-                        <span class="block text-xs mt-2 text-blue-600">Zalo</span>
-                    </a>
-                    <div id="aiChatBtn" class="bg-green-50 p-3 rounded-lg hover:bg-green-100 transition cursor-pointer">
-                        <i data-feather="message-circle" class="mx-auto text-green-500 w-8 h-8"></i>
-                        <span class="block text-xs mt-2 text-green-600">AI Chat</span>
-                    </div>
+            <div class="flex items-center space-x-4">
+                <div id="aiSearchBox" class="relative">
+                    <input 
+                        type="text" 
+                        placeholder="Hỏi Với AI" 
+                        class="bg-gray-100 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
                 </div>
+            </div>
+        </div>
+    </nav>
 
-                <!-- Embedded Video -->
-                <div class="mt-6">
-                    <iframe 
-                        width="100%" 
-                        height="215" 
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                        class="rounded-lg shadow-md"
-                    ></iframe>
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 pt-20 flex">
+        <!-- Left Sidebar -->
+        <div class="w-1/4 pr-6">
+            <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                <img 
+                    src="https://www.citypng.com/public/uploads/preview/threads-app-black-logo-icon-png-735811696672465sppjeyghwv.png" 
+                    alt="Profile Picture" 
+                    class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                >
+                <h2 class="text-xl font-bold">Nguyễn Văn A</h2>
+                <p class="text-gray-600">Nhà phát triển & Sáng tạo nội dung</p>
+                
+                <div class="grid grid-cols-3 gap-4 mt-6">
+                    <a href="https://www.threads.net/@username" target="_blank" class="hover:bg-gray-100 p-2 rounded-lg">
+                        <img src="https://www.citypng.com/public/uploads/preview/threads-app-black-logo-icon-png-735811696672465sppjeyghwv.png" class="w-10 h-10 mx-auto">
+                    </a>
+                    <a href="https://www.facebook.com/username" target="_blank" class="hover:bg-gray-100 p-2 rounded-lg">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/2048px-2023_Facebook_icon.svg.png" class="w-10 h-10 mx-auto">
+                    </a>
+                    <a href="https://tiktok.com/@username" target="_blank" class="hover:bg-gray-100 p-2 rounded-lg">
+                        <img src="https://static.vecteezy.com/system/resources/previews/016/716/450/non_2x/tiktok-icon-free-png.png" class="w-10 h-10 mx-auto">
+                    </a>
+                    <a href="https://t.me/username" target="_blank" class="hover:bg-gray-100 p-2 rounded-lg">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/2048px-Telegram_2019_Logo.svg.png" class="w-10 h-10 mx-auto">
+                    </a>
+                    <a href="https://github.com/username" target="_blank" class="hover:bg-gray-100 p-2 rounded-lg">
+                        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="w-10 h-10 mx-auto">
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- AI Chat Popup (Initially Hidden) -->
-        <div id="aiChatPopup" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
-            <div class="bg-white rounded-lg p-6 w-96 relative">
-                <button id="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
-                    <i data-feather="x" class="w-6 h-6"></i>
-                </button>
-                <h2 class="text-xl font-bold mb-4">AI Chat</h2>
-                <input type="text" placeholder="Nhập câu hỏi..." class="w-full p-2 border rounded mb-4">
-                <button class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Gửi</button>
+        <!-- Main Content Area -->
+        <div class="w-3/4">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-4">Giới Thiệu</h3>
+                <p class="text-gray-700">Chào mừng bạn đến với hồ sơ cá nhân của tôi! Tôi là một nhà phát triển đam mê công nghệ, không ngừng học hỏi và sáng tạo trong lĩnh vực công nghệ thông tin.</p>
+                
+                <h3 class="text-xl font-semibold mt-6 mb-4">Dự Án Nổi Bật</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="font-semibold">Dự Án Web</h4>
+                        <p class="text-sm text-gray-600">Ứng dụng quản lý dự án hiện đại</p>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="font-semibold">Ứng Dụng Di Động</h4>
+                        <p class="text-sm text-gray-600">Giải pháp theo dõi sức khỏe</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-center text-xs mt-4 text-gray-500">
-        <p>© 2024 Bản quyền thuộc về Nguyễn Văn A</p>
-        <p>Phát triển với <a href="https://cloud.google.com/generative-ai" class="text-blue-500">Google Cloud Platform</a></p>
-    </footer>
+    <!-- AI Chat Popup -->
+    <div id="aiChatPopup" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+        <div class="bg-white rounded-lg w-2/3 h-2/3 flex flex-col">
+            <!-- Popup Header -->
+            <div class="flex justify-between items-center p-4 border-b">
+                <h2 class="text-xl font-bold">Hỏi Với AI</h2>
+                <button id="closePopup" class="text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Chat Messages Area -->
+            <div id="chatMessages" class="flex-grow overflow-y-auto p-4">
+                <!-- Messages will be dynamically added here -->
+            </div>
+
+            <!-- Chat Input -->
+            <div class="p-4 border-t">
+                <div class="flex items-center">
+                    <input 
+                        type="text" 
+                        id="chatInput" 
+                        placeholder="Nhập câu hỏi của bạn..." 
+                        class="flex-grow bg-gray-100 rounded-full px-4 py-2 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                    <button id="sendMessage" class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Initialize Feather Icons
-        feather.replace();
-
-        // Popup Functionality
-        const aiChatBtn = document.getElementById('aiChatPopup');
-        const openPopupBtn = document.getElementById('aiChatBtn');
+        // AI Search Box Popup Trigger
+        const aiSearchBox = document.getElementById('aiSearchBox');
+        const aiChatPopup = document.getElementById('aiChatPopup');
         const closePopupBtn = document.getElementById('closePopup');
+        const chatInput = document.getElementById('chatInput');
+        const sendMessageBtn = document.getElementById('sendMessage');
+        const chatMessages = document.getElementById('chatMessages');
 
-        openPopupBtn.addEventListener('click', () => {
-            aiChatBtn.classList.remove('hidden');
-            aiChatBtn.classList.add('flex');
+        aiSearchBox.addEventListener('click', () => {
+            aiChatPopup.classList.remove('hidden');
+            aiChatPopup.classList.add('flex');
         });
 
         closePopupBtn.addEventListener('click', () => {
-            aiChatBtn.classList.remove('flex');
-            aiChatBtn.classList.add('hidden');
+            aiChatPopup.classList.remove('flex');
+            aiChatPopup.classList.add('hidden');
+        });
+
+        // Send Message Functionality
+        function addMessage(text, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add(
+                'mb-4', 
+                'p-3', 
+                'rounded-lg', 
+                type === 'user' ? 'bg-blue-100 self-end' : 'bg-gray-100 self-start'
+            );
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                addMessage(message, 'user');
+                chatInput.value = '';
+                
+                // Simulated AI response (replace with actual API call)
+                setTimeout(() => {
+                    addMessage('Xin chào! Tôi là trợ lý AI. Bạn có câu hỏi gì không?', 'ai');
+                }, 1000);
+            }
+        }
+
+        sendMessageBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
         });
     </script>
 </body>
-                            </html>
+    </html>
