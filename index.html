@@ -1,111 +1,85 @@
 <!DOCTYPE html>
-
+<html lang="vi">
 <head>
-
-<meta charset="UTF-8">
-
+    <meta charset="UTF-8">
+    <title>Gemini AI Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #question-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        #question-input {
+            flex-grow: 1;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        #submit-btn {
+            padding: 10px 15px;
+        }
+        #response {
+            border: 1px solid #ccc;
+            padding: 15px;
+            min-height: 100px;
+        }
+    </style>
 </head>
-
 <body>
+    <h1>Trợ lý AI Gemini</h1>
+    
+    <div id="question-form">
+        <input type="text" id="question-input" placeholder="Nhập câu hỏi của bạn...">
+        <button id="submit-btn">Gửi</button>
+    </div>
+    
+    <div id="response"></div>
 
-<!-- Dinh dang 1 su dung ten mau -->
+    <script type="importmap">
+    {
+        "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+    }
+    </script>
+    
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
 
-<table bgcolor="beige" width="100%">
+        const API_KEY = "AIzaSyC-V3EfjLTDmJR5CTymMHDnqRp2VlrLX5E";
 
-<tr><td>
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-<h1 style="color:red" align="center"> Giới thiệu nhóm em</h1>
+        const questionInput = document.getElementById('question-input');
+        const submitBtn = document.getElementById('submit-btn');
+        const responseDiv = document.getElementById('response');
 
-<a href="gioi_thieu_nhom_em.html"
+        submitBtn.addEventListener('click', async () => {
+            const question = questionInput.value.trim();
+            
+            if (!question) {
+                responseDiv.textContent = "Vui lòng nhập câu hỏi.";
+                return;
+            }
 
-target="iframe">Gioi thieu nhom em</a>
-
-( <a href="nhom_em.html" target="iframe">Nhom em </a>)
-
-<br>
-
-<iframe name="iframe" width="104" height="7">
-
-</iframe>
-
-<form>
-
-<label for=" hoten"><i> <p style="font-
-
-size:small">Họ và tên:</p></i>
-
-</label><input type="text" id="hoten" >
-
-<br><br>
-
-<label for="Uudiem"> <i>Ưu điểm:</i>
-
-</label> <input type="text" id="Uudiem" >
-
-<br><br>
-
-<label for="Khuyetdiem"><i>Khuyết điểm:</i>
-
-</label> <input type="text" id="khuyetdiem"
-
-<br><br>
-<label for="ngaysinh"> Ngày sinh:
-
-</label>
-
-<input type="date" id="ngaysinh">
-
-<br><br>
-
-<label> Giới tính: </label> <input
-
-type="radio" id="gioitinh1" name="gioitinh"
-
-value="nu"><b>Nữ </b>
-
-<input type="radio" id="gioitinh2"
-
-name="gioitinh" value="Nam" ><b>Nam</b>
-
-<br><br>
-
-<label> <u>Sở thích:</u></label>
-
-<br><br>
-
-<input type="checkbox" id="sothich1" name="sothich1" value="xemphim"> Xem phim
-
-<input type="checkbox" id="sothich2"
-
-name="sothich2" value="bongda"> Bóng đá
-
-<input type="checkbox" id="sothich3"
-
-name="sothich3" value="choigame">
-
-Chơi game
-
-<input type="checkbox" id="sothich4"
-
-name="sothich4" value="doctruyen" >
-
-Đọc truyện
-
-<br><br>
-
-<input type="submit" value="Gửi thông tin">
-
-</form>
-
-<a
-
-href="http://webcoban.vn/image/hugo.jpg">Clic k here</a>
-
-<br><br>
-
-
-<a href="https://www.facebook.com"><img src="http://webcoban.vn/image/sumo.jpg"></a> html><h2>- Bên dưới là một tấm hình:</h2>
-
-<img src="https://www.thepoetmagazine.org/wp- content/uploads/2024/05/meme-meo-10-diem- 768x768.jpg">
-
-  </body>
+            try {
+                responseDiv.textContent = "Đang tìm kiếm câu trả lời...";
+                
+                const result = await model.generateContent(question);
+                const response = await result.response;
+                const text = await response.text();
+                
+                responseDiv.textContent = text;
+            } catch (error) {
+                console.error("Lỗi:", error);
+                responseDiv.textContent = "Đã xảy ra lỗi. Vui lòng thử lại.";
+            }
+        });
+    </script>
+</body>
+</html>
